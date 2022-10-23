@@ -24,7 +24,7 @@
 
 <br />
 
-### !
+### ! (non-null assertion)
 
 ```ts
 const head = document.querySelector("#head"); // const head: Element | null
