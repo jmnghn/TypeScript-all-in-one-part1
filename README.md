@@ -1,6 +1,9 @@
 ## TypeScript-all-in-one-part1
 
-> ※ fork repository: [https://github.com/jmnghn/ts-all-in-one](https://github.com/jmnghn/ts-all-in-one)
+> ※ fork repository: [https://github.com/jmnghn/ts-all-in-one](https://github.com/jmnghn/ts-all-in-one) <br />
+> ※ original repository: [https://github.com/ZeroCho/ts-all-in-one](https://github.com/ZeroCho/ts-all-in-one)
+
+<br />
 
 ## 타입스크립트 강좌를 리뉴얼한 이유
 
@@ -15,7 +18,7 @@
 - [TypeScript: Handbook](https://www.typescriptlang.org/docs/handbook/intro.html)
 - [TypeScript: Documentation - Overview(버전 수정 내역)](https://www.typescriptlang.org/docs/handbook/release-notes/overview.html)
 
-(1) `TypeScript: Handbook`을 읽기
+(1) `TypeScript: Handbook`을 읽기 <br />
 (2) TypeScript: Documentation - Overview(버전 수정 내역) 에서 1.1부터 차례대로 읽어가면서 어떤 부분들이 어떤 이유에서 바꼈는지 살펴보기
 
 와 함께 강의 병행하기 :)
