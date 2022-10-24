@@ -1,11 +1,9 @@
-const x: {} = true;
-const y: Object = "hi"; // {}, Object 는 모든 타입을 뜻한다. (null과 undefined는 제외)
-const xx: object = "hi"; // 객체만을 타입으로 지정하고 싶다면 소문자 object를 사용해야 한다.
-const yy: object = { hello: "world" }; // 하지만 object는 지양하자. interface, type, class를 활용하자 :)
-const z: unknown = "hi";
+class A {
+  readonly a: string;
+  b: string;
+}
 
-// unknown = {} | null | undefined (v4.8)
-// 그 전까지는 unknown
-if (z) {
-  z;
+class B implements A {
+  a: string = "123";
+  b: string = "world";
 }
