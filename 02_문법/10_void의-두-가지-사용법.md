@@ -153,9 +153,9 @@ const a: A = {
     return 3;
   },
 };
-// as
+// 방법 1 - as
 const b = a.talk() as unknown as number;
-// <>
+// 방법 2 - <>
 const b = <number>(<unknown>a.talk());
 ```
 
