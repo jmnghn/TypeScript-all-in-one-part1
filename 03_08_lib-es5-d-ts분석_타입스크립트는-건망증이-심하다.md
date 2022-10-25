@@ -41,7 +41,7 @@ declare const axios: Axios;
 
 <br />
 
-### 에러 처리 방법
+### Error를 처리하는 방법
 
 ```ts
 interface Axios {
