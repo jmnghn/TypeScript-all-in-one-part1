@@ -16,7 +16,7 @@ add(1, 2, 3);
 
 <br />
 
-### lib.es5.d.ts
+### lib.es5.d.ts의 오버로딩
 
 ```ts
 interface Arr<T> {
@@ -45,13 +45,14 @@ interface Arr<T> {
     ) => T,
     initialValue: T
   ): T;
+  ...
 }
-// 한 가지 방식으로 타입을 정의하면 가장 베스트겠지만, 그러지 못하는 경우 오버로드시킨다.
 ```
+> 한 가지 방식으로 타입을 정의하면 가장 베스트겠지만, 그러지 못하는 경우 오버로드시킨다.
 
 <br />
 
-### 오버로딩 예제 1
+### 오버로딩 예제
 
 ```ts
 // 타입스크립트가 익숙하지 않아서(!) 어떻게 정의해야 좋을지 모를 때 다음과 같이 작성해도 괜찮...다^^;
@@ -68,7 +69,7 @@ declare function add(x: number, y: number, z?: number): number;
 
 <br />
 
-### 오버로딩 예제 - interface
+### interface의 오버로딩
 
 ```ts
 interface Add {
@@ -84,6 +85,6 @@ class A {
     return x + y;
   }
 }
-// 타입 추론결과 - const c: string
+// 타입 추론결과 - const c: string ✅
 const c = new A().add("1", "2");
 ```
