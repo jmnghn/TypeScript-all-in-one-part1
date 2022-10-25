@@ -18,6 +18,8 @@
 - [TypeScript: Handbook](https://www.typescriptlang.org/docs/handbook/intro.html)
 - [TypeScript: Documentation - Overview(버전 수정 내역)](https://www.typescriptlang.org/docs/handbook/release-notes/overview.html)
 
+### 추천 학습 순서
+
 (1) `TypeScript: Handbook`을 읽기 <br />
 (2) TypeScript: Documentation - Overview(버전 수정 내역) 에서 1.1부터 차례대로 읽어가면서 어떤 부분들이 어떤 이유에서 바꼈는지 살펴보기
 
