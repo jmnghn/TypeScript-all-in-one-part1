@@ -36,5 +36,7 @@
 - [jQuery - index.d.ts](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/jquery/JQuery.d.ts)
 - [redux - index.d.ts](https://github.com/reduxjs/redux/blob/master/src/index.ts)
 
-> 애초에 타입스크립트인 redux, 패키지 내부에서 d.ts를 제공하는 axios, @types 패키지가 별도로 존재하는 react, node, express, jQuery로 구분된다.<br />
+> 애초에 타입스크립트인 redux<br />
+> 패키지 내부에서 d.ts를 제공하는 axios<br />
+> @types 패키지가 별도로 존재하는 react, node, express, jQuery로 구분된다.<br />
 > @types는 DefinitelyTyped라는 프로젝트로, 커뮤니티에서 라이브러리 형태의 타이핑을 제공한다.
