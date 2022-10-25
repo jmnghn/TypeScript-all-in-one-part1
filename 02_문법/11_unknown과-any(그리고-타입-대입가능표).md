@@ -76,6 +76,6 @@ b.toString();
 
 ### 타입간 대입 가능 표
 
-<img width="640" src="https://user-images.githubusercontent.com/19165916/197490243-1f382c15-e941-4326-8780-1ce91fa81bf4.png" /><br />
+<img width="100%" src="https://user-images.githubusercontent.com/19165916/197490243-1f382c15-e941-4326-8780-1ce91fa81bf4.png" /><br />
 
 <br />
