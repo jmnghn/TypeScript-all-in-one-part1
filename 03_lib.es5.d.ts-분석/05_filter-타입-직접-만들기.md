@@ -71,13 +71,13 @@ const d = c.filter((v): v is string => typeof v === "string"); // expect: ['2', 
 
 <br />
 
-### 수정 - 추가 제네릭 추가
+### 수정 - 제네릭 더 추가 (S)
 
 ```ts
 interface Arr<T> {
   forEach(callback: (item: T) => void): void;
   map<S>(callback: (v: T) => S): S[];
-  // v is T로 수정
+  // v is S로 수정
   filter<S>(callback: (v: T) => v is S): S[];
 }
 
@@ -126,14 +126,16 @@ const c: Arr<number | string> = [1, "2", 3, "4", 5];
 const d = c.filter((v): v is string => typeof v === "string"); // expect: ['2', '4'] 그리고 string[]
 
 // 더 검증해보자
-// const e = c.filter((v) => typeof v === "number"); // expect: [1, 3, 5] 그리고 number[] // ❌ 형식 조건자로 만들어줘야하므로...
+const e = c.filter((v) => typeof v === "number"); // expect: [1, 3, 5] 그리고 number[] // ❌ 형식 조건자로 만들어줘야하므로 에러가 난다.
+
+// 형식 조건자를 추가해주자. (v is number)
 // 타입추론 결과
 // - const e: string[] ✅
 // - (parameter) v: string | number
 const e = c.filter((v): v is number => typeof v === "number"); // expect: [1, 3, 5] 그리고 number[]
 
 // v is number로 가독성을 많이 해치는 것 같으면 바깥으로 빼도 된다.
-// (※ 그럼에도 불구하고 인라인이건 바깥으로빼건 가독성이 좋지 못하다 😅)
+// (※ 그럼에도 불구하고 인라인이건 바깥으로빼건, 타입스크립트는 가독성이 좋지 못하다 😅)
 const predicate = (v: string | number): v is number => typeof v === "number";
 const f = c.filter(predicate);
 ```
