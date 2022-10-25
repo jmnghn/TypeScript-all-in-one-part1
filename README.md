@@ -5,8 +5,6 @@
 
 <br />
 
-## 타입스크립트 강좌를 리뉴얼한 이유
-
 타입스크립트의 문법도 문법이지만, 다른 사람이 만든 라이브러리의 타입을 분석하는 능력도 정말 중요하다는 생각으로 거기에 더 포커스를 맞췄다.<br />
 
 <br />
@@ -18,12 +16,16 @@
 - [TypeScript: Handbook](https://www.typescriptlang.org/docs/handbook/intro.html)
 - [TypeScript: Documentation - Overview(버전 수정 내역)](https://www.typescriptlang.org/docs/handbook/release-notes/overview.html)
 
+<br />
+
 ### 추천 학습 순서
 
 (1) `TypeScript: Handbook`을 읽기 <br />
 (2) TypeScript: Documentation - Overview(버전 수정 내역) 에서 1.1부터 차례대로 읽어가면서 어떤 부분들이 어떤 이유에서 바꼈는지 살펴보기
 
-와 함께 강의 병행하기 :)
+그리고 병행하기 :)
+
+<br />
 
 ### 함께 읽어 볼 라이브러리 코드
 
