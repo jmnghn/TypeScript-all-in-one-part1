@@ -6,6 +6,7 @@
 ### 타입을 만들어보자
 
 ```ts
+// 아래 코드의 인자가 number니까, 인자를 number로 일단 만들어보자
 interface Arr {
   forEach(callback: (item: number) => void): void;
 }
@@ -31,12 +32,13 @@ b.forEach((item) => {
 ### 수정 1
 
 ```ts
+// 인자의 타입에 | 로 string도 추가해주었다.
 interface Arr {
   forEach(callback: (item: number | string) => void): void;
 }
 
 // 음~ 되는 거 같다. 그러면 이제 된 걸까?
-// 만약 자연스럽게 함수 내부가 조금만 더 복잡해진다면...?
+// 하지만 만약 함수 내부가 조금만 더 복잡해진다면...?
 const a: Arr = [1, 2, 3];
 a.forEach((item) => {
   item.toFixed(1); // ❌ Property 'toFixed' does not exist on type 'string | number'. Property 'toFixed' does not exist on type 'string'.ts(2339)
@@ -57,6 +59,7 @@ b.forEach((item) => {
 ### 수정 2
 
 ```ts
+// 제네릭을 사용해보자.
 interface Arr<T> {
   forEach(callback: (item: T) => void): void;
 }
