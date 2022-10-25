@@ -67,7 +67,7 @@ const c: Arr<number | string> = [1, "2", 3, "4", 5];
 const d = c.filter((v): v is string => typeof v === "string"); // expect: ['2', '4'] 그리고 string[]
 ```
 
-> 모든 에러는 사라졌지만, 원하는대로 동작하지 않는다.
+> 모든 에러는 사라졌지만, 원하는대로 타입이 지정되지 않는다.
 
 <br />
 
