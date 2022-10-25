@@ -12,7 +12,8 @@ interface B {
 const b: B = { a: "hello" };
 ```
 
-> 간단한거는 type, 객체지향은 interface를 추천
+> 간단한거는 type, 객체지향은 interface를 추천<br />
+> (개인적으로는 데이터에서는 type. 클래스에서는 interface를 지향한다.)
 
 <br />
 
