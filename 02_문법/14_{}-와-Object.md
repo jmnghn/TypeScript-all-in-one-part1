@@ -10,7 +10,7 @@ const yy: object = { hello: "world" }; // 하지만 object는 지양하자. inte
 const z: unknown = "hi";
 
 // unknown = {} | null | undefined (v4.8)
-// 그 전까지는 unknown
+// 4.8 전까지는(4.7 이하) unknown 이었다.
 if (z) {
   z;
 }
