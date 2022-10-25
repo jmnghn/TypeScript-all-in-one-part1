@@ -24,6 +24,7 @@ type A = { [key: string]: string };
 // 물론 다른 타입들도 가능하다.
 type A = { [key: string]: number };
 ```
+> 전혀 다르지만, computed property(obj['key']) 같은 느낌이 든다.
 
 <br />
 
