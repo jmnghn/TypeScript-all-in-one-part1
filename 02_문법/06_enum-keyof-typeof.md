@@ -30,8 +30,7 @@ const ODirection = {
 #### `as const`, 타입스크립트가 추론을 제대로 하지 못하는 경우
 
 ```ts
-/* 타입추론 결과 - Up: 0, Down: 1, Left: 2, Right: 3 의 형태로 사용하고 싶었는데 모두 number가 됐다.
-
+/* 객체의 타입추론 결과, 모두 number가 됐다. Up: 0, Down: 1, Left: 2, Right: 3 의 형태로 사용하고 싶다.
 const ODirection: {
   Up: number;
   Down: number;
@@ -47,7 +46,6 @@ const ODirection = {
 };
 
 /* 타입을 직접 지정했을 때 타입추론 결과
-
 const ODirection: {
     Up: 0;
     Down: 1;
@@ -63,7 +61,6 @@ const ODirection: { Up: 0; Down: 1; Left: 2; Right: 3 } = {
 };
 
 /* as const 사용한 타입추론 결과 
-
 const ODirection = {
   Up: 0,
   Down: 1,
@@ -133,7 +130,7 @@ const f: Key = "c";
 const g: Key = "123"; // ❌ Type '"123"' is not assignable to type '"a" | "b" | "c"'.ts(2322)
 ```
 
-#### value만 가져오고 싶은 경우
+#### 반대로 value만 가져오고 싶은 경우
 
 `typeof obj[keyof typeof obj]`
 
