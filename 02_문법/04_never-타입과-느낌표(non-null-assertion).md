@@ -51,7 +51,8 @@ const head = document.querySelector("#head")!; // 코드 마지막에 '!'를 붙
 ```
 
 하지만 추천되는 방식은 아니다. (다른 사람의 코드를 읽기위해 있다는 정도만 알고가는 느낌)<br />
-왜냐하면 만약 누군가 id가 head였던 엘리먼트를 header로 변경하고, 스크립트를 그에 맞게 수정하지 않는 문제도 생길 수 있기 때문이다. (그 유명한 `Cannot read properties of null` 에러가 뿜뿜)<br />
+왜냐하면 만약 누군가 id가 head였던 엘리먼트를 header로 변경하고, 스크립트를 그에 맞게 수정하지 않는 문제도 생길 수 있기 때문이다.<br />
+(그 유명한 `Cannot read properties of null` 에러가 뿜뿜)<br />
 
 ```html
 <!-- 누군가 엘리먼트의 id를 "head"에서 "header"로 변경했다. -->
