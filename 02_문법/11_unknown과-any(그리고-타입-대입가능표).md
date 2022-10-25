@@ -15,7 +15,7 @@ const b: any = a.talk();
 b.method();
 ```
 
-> `any`는 타입 체크를 아예 포기(!)한다. (없는 메소드를 호출해도 아무런 에러도 발생하지 않는다.)
+> `any`는 타입 체크를 아예 포기(!)한다는 의미다. (없는 메소드를 호출해도 아무런 에러도 발생하지 않는다.)
 
 <br />
 
@@ -44,7 +44,7 @@ b.method(); // Object is of type 'unknown'.ts(2571)
 ```ts
 try {
 } catch (error) {
-  // error.message;
+  // error.message; // ❌ 에러
   // 그래서 직접 타이핑을 해줘야한다.
   (error as Error).message;
   (error as AxiosError).message;
