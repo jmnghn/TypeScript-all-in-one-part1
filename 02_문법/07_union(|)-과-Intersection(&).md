@@ -52,11 +52,11 @@ const a: A = 1;
 
 ```ts
 type A = { hello: "world" } & { a: "b" };
-const a: A = { hello: "world", a: "b" };
+const a: A = { hello: "world", a: "b" }; // ✅
 
+const b: A = { hello: "world" }; // ❌
 // Type '{ hello: "world"; }' is not assignable to type 'A'.
 // Property 'a' is missing in type '{ hello: "world"; }' but required in type '{ a: "b"; }'.ts(2322)
-const a: A = { hello: "world" };
 ```
 
 <br />
