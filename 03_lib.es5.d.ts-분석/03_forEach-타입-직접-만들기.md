@@ -79,7 +79,7 @@ b.forEach((item) => {
 });
 ```
 
-> Good!
+> Good! 👏🏻👏🏻👏🏻
 
 <br />
 
