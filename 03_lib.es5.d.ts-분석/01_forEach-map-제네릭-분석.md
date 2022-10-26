@@ -7,14 +7,17 @@
 [1, 2, 3].forEach((value) => {
   console.log(value);
 });
+
 // value 인자의 타입 추론 - (parameter) value: string
 ["1", "2", "3"].forEach((value) => {
   console.log(value);
 });
+
 // value 인자의 타입 추론 - (parameter) value: boolean
 [true, false, true].forEach((value) => {
   console.log(value);
 });
+
 // value 인자의 타입 추론 - (parameter) value: string | number | boolean
 ["123", 123, true].forEach((value) => {
   console.log(value);
@@ -47,7 +50,7 @@ interface Array<T> {
 ```ts
 function a(x: number | string, y: number | string) {}
 // 위 함수와 같이 '|'를 사용하면, 아래와 같은 타입이 불일치하는 호출까지 허용이 된다.
-// (저걸 허용해서 return 타입을 number | string 으로 하는 것도 타입스크립트에서는 말이 안된다.)
+// (사실 인자의 number, string을 모두 허용해서 return 타입을 number | string 으로 하는 것도 타입스크립트에서는 말이 안된다.)
 a(1, "2");
 a("1", 2);
 
