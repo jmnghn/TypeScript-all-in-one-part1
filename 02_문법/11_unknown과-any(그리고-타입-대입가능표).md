@@ -11,6 +11,7 @@ const a: A = {
     return 3;
   },
 };
+// 오류없이 작동한다기 보다는 '무반응'인 것.
 const b: any = a.talk();
 b.method();
 ```
@@ -44,7 +45,7 @@ b.method(); // Object is of type 'unknown'.ts(2571)
 ```ts
 try {
 } catch (error) {
-  // error.message; // ❌ 에러
+  error.message; // ❌ 에러
   // 그래서 직접 타이핑을 해줘야한다.
   (error as Error).message;
   (error as AxiosError).message;
@@ -73,6 +74,8 @@ b.toString();
 ```
 
 > 그리고 처음에 강조했듯이 에러가 발생한다고 동작하지 않는 것은 아니다. 타입스크립트는 '컴파일'과 '코드변환'이 별개이기에. (다시 강조)
+
+<br />
 
 ### 타입간 대입 가능 표
 
