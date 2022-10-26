@@ -13,7 +13,7 @@ a.a = "error"; // ❌ Cannot assign to 'a' because it is a read-only property.ts
 
 <br />
 
-### Index Signature
+### Indexed Signature
 
 ```ts
 type A = { a: string; b: string; c: string; d: string };
@@ -33,5 +33,10 @@ type A = { [key: string]: number };
 ```ts
 type B = "Human" | "Mammal" | "Animal";
 type A = { [key in B]: B };
-const aaa: A = { Human: "", Mammal: "", Anmial: "" };
+const a: A = { Human: "Human", Mammal: "Mammal", Animal: "Animal" }; // ✅
+
+const b: A = { Human: "", Mammal: "", Animal: "" }; // ❌
+const c: A = { a: "Human", b: "Mammal", c: "Animal" }; // ❌
+const d: A = { a: "", b: "", c: "" }; // ❌
+
 ```
