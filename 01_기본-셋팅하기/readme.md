@@ -186,7 +186,7 @@ You can learn about all of the compiler options at https://aka.ms/tsc
 
 ### 타입스크립트와 친해지기 - `tsc`(noEmit) 사용해보기
 
-`tsc --noEmit`을 입력하면, 타입검사내역이 출력된다.(자바스크립트 변환 파일은 생성되지 않는다.)<br />
+`tsc --noEmit`을 입력하면, 타입검사내역이 출력된다.(이 때, 자바스크립트 변환 파일은 생성되지 않는다.)<br />
 
 > 에디터를 사용하지 않으면 매번 이 입력을 해야한다. ^^;
 
