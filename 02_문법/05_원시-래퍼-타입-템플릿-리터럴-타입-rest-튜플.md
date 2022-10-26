@@ -1,5 +1,7 @@
 ## 원시 래퍼 타입, 템플릿 리터럴 타입, rest, 튜플
 
+<br />
+
 ### 원시 래퍼 타입
 
 string 타입과 String 타입은 다르다. (첫 글자 대문자/소문자)
@@ -22,14 +24,14 @@ c(a, b);
 
 <br />
 
-### 템플릿 리터럴 타입 - 타입스크립트는 템플릿 리터럴로도 type 알리아스를 지원한다.
+### 템플릿 리터럴 타입 - 타입스크립트는 템플릿 리터럴로도 type 앨리어스를 지원한다.
 
 ```ts
 type World = "world" | "hell";
 const a: World = "world";
 
 // type Greeting = "hello world"
-type Greeting = `hello ${World}`;
+type Greeting = `hello ${World}`; // ✅
 ```
 
 - 이로 인한 정교한 타입 추천이 가능해진다.
