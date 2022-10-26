@@ -12,7 +12,7 @@
 - 단순히 타입검사만 하고싶다면, `tsc --noEmit`을 하면된다.
 - 개인적으로 `tsconfig.json`에서 주로`esModuleInterop:true`, `strict: true`. 두 개만 켜놓는 편이다. `strict: true`가 핵심이다.
 - `.ts`파일을 실행하는 게 아니라 결과물인 `.js`를 실행해야 한다.
-- 에디터가 필수가 됐다. VS Code나 WebStorm 같은 에디터가 반드시 필요하다. (`tsc --noEmit`를 자동으로 해준다.)
+- 에디터가 필수가 됐다. VS Code나 WebStorm 같은 에디터가 반드시 필요하다. (`tsc --noEmit`을 자동으로 해준다.)
 
 <br />
 
