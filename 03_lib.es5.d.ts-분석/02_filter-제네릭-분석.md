@@ -59,4 +59,5 @@ const filtered2 = ["1", 2, "3", 4, "5"].filter(
 
 ```ts
 const predicate = (value: string | number): value is string => typeof value === "string";
+const filtered3 = ["1", 2, "3", 4, "5"].filter(predicate); // ✅
 ```
