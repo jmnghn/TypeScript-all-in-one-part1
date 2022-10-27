@@ -151,7 +151,7 @@ type InstanceType<T extends abstract new (...args: any) => any> =
   T extends abstract new (...args: any) => infer R ? R : any;
 ```
 
-#### `ConstructorParameters`
+#### `ConstructorParameters`와 `InstanceType` 써보기
 
 ```ts
 class A {
