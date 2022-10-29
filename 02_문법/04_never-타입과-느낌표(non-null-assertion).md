@@ -4,6 +4,12 @@ never, unknown, any 타입을 주의해야 한다. any는 최대한 피하고 �
 
 [never 좋은 설명 글 - 타입스크립트의 never 타입 완벽 가이드 (toast-ui)](https://ui.toast.com/weekly-pick/ko_20220323)
 
+- 타입은 가능한 값의 집합
+- never가 왜 필요한지(불가능을 표현하기 위해)
+- 유니언, 인터섹션의 never의 동작(0의 덧셈과 곱셈같이)
+
+<br />
+
 ### never 타입
 
 - 빈 배열일 때, never라는 희한한(!) 타입이 나온다.
