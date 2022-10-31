@@ -34,7 +34,7 @@ never, unknown, any 타입을 주의해야 한다. any는 최대한 피하고 �
   ```
 
   ```ts
-  const arr = []; // const arr: never[]
+  const arr = []; // [타입추론] const arr: never[]
 
   arr.push(1); // error 💣
   arr.push("hello"); // error 💣
@@ -54,7 +54,7 @@ never, unknown, any 타입을 주의해야 한다. any는 최대한 피하고 �
 ### ! (non-null assertion)
 
 ```ts
-const head = document.querySelector("#head"); // 타입 추론 - const head: Element | null
+const head = document.querySelector("#head"); // [타입 추론] const head: Element | null
 ```
 
 > 타입스크립트가 id가 head인 엘리먼트가 없는 경우에 대한 상황까지 고려해 head의 타입을 `Element | null`로 추론한다.
