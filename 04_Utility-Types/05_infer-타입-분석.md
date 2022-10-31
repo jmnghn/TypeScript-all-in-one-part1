@@ -2,6 +2,8 @@
 
 > inference: 1. 추론(한 것), (=deduction) 2. 추론 (행위)
 
+<br />
+
 ### `Parameters<Type>`
 
 함수 유형 Type의 '매개변수에 사용된 타입'에서 '튜플 타입'을 생성합니다.
@@ -11,15 +13,16 @@
 ```ts
 declare function f1(arg: { a: number; b: string }): void;
 
-// type T0 = [];
+// [타입추론] type T0 = [];
 type T0 = Parameters<() => string>;
 
-// type T1 = [s: string];
+// [타입추론] type T1 = [s: string];
 type T1 = Parameters<(s: string) => void>;
 
-// type T2 = [arg: unknown];
+// [타입추론] type T2 = [arg: unknown];
 type T2 = Parameters<<T>(arg: T) => T>;
 
+// [타입추론] 
 // type T3 = [
 //   arg: {
 //     a: number;
@@ -28,19 +31,21 @@ type T2 = Parameters<<T>(arg: T) => T>;
 // ];
 type T3 = Parameters<typeof f1>;
 
-// type T4 = unknown[];
+// [타입추론] type T4 = unknown[];
 type T4 = Parameters<any>;
 
-// type T5 = never;
+// [타입추론] type T5 = never;
 type T5 = Parameters<never>;
 
 // type T6 = never
 type T6 = Parameters<string>; // ❌ Type 'string' does not satisfy the constraint '(...args: any) => any'.
+// string은 함수꼴에 맞지 않는다.
 
 // type T7 = never
 type T7 = Parameters<Function>;
 // ❌ Type 'Function' does not satisfy the constraint '(...args: any) => any'.
 // Type 'Function' provides no match for the signature '(...args: any): any'.
+// Function은 함수꼴에 맞지 않는다.
 ```
 
 #### Example 코드 2
@@ -56,11 +61,10 @@ function zip(
 
 // type Params = Parameters<zip>; // ❌ 'zip' refers to a value, but is being used as a type here. Did you mean 'typeof zip'?ts(2749)
 
-// 함수를 바로 타입으로 사용할 수는 없기 때문에 typeof를 붙여줘야 한다.
-// 타입 추론 - type Params = [x: number, y: string, z: boolean] // 튜플 형태
-type Params = Parameters<typeof zip>; // ✅
+// [타입추론] type Params = [x: number, y: string, z: boolean] // ✅ 튜플 형태
+type Params = Parameters<typeof zip>; // 함수를 바로 타입으로 사용할 수는 없기 때문에 typeof를 붙여줘야 한다.
 
-// 타입 추론 - type First = number
+// [타입추론] type First = number
 type First = Params[0]; // 튜플 형식에서는 이처럼 인덱스를 통해 타입을 값처럼 꺼내올 수 있다.
 ```
 
@@ -119,7 +123,7 @@ type R<T extends (...args: any) => any> = T extends (...args: any) => infer A
 // };
 type Return = R<typeof zip>;
 
-// 이와 같은 유틸리티 타입은 실제로도 있다.
+// 물론 이런 동작을 하는 유틸리티 타입은 실제로도 있다. (ReturnType)
 // type Ret = { // ✅
 //   x: number;
 //   y: string;
@@ -167,8 +171,13 @@ class A {
 }
 const c = new A("123", 456, false);
 
-// [타입추론] type C = [a: string, b: number, c: boolean] // ✅
-type C = ConstructorParameters<typeof A>; // typeof 클래스가 생성자 (abstract new (...args: any) => any가 생성자라는 걸 알려주는 부분)
+// [타입추론] type D = [a: string, b: number, c: boolean] // ✅ Parameters 튜플형태다.
+type D = ConstructorParameters<typeof A>; // typeof 클래스가 생성자 (abstract new (...args: any) => any가 생성자라는 걸 알려주는 부분)
+
+// [타입추론] type First = string // ✅
+type First = D[0];
+// [타입추론] type Second = number // ✅
+type Second = D[1];
 
 // [타입추론] type I = A
 type I = InstanceType<typeof A>; // new A("123", 456, false);
@@ -181,7 +190,7 @@ const b: I = new A("123", 456, false); // ✅ 인스턴스(new)
 
 ### 기타
 
-대부분의 유틸리티 타입을 살펴봤지만, 내부적으로 구현되어있는 유틸리티 타입들도 여러개가 있다.
+대부분의 유틸리티 타입을 살펴봤지만, 내부적으로 구현되어있는 유틸리티 타입들도 여러개가 있다. (`intrinsic`)
 
 <br />
 
