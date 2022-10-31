@@ -35,7 +35,7 @@ const b: unknown = a.talk();
 b.method(); // Object is of type 'unknown'.ts(2571)
 
 // unknown은 b의 타입을 직접 지정해야 한다.
-(b as A).talk();
+(b as A).talk(); // 타입단언을 통해 A로 선언했다
 ```
 
 > 타입을 포기한(!) any와 unknown은 다르다.
