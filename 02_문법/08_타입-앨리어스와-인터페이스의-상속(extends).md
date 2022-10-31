@@ -42,6 +42,33 @@ interface 포유류 extends 동물 {
 const 강아지: 포유류 = { breath: true, breed: true };
 ```
 
+#### 하나 이상으로도 가능하다.
+
+```ts
+interface A {
+  a: 1;
+}
+interface B {
+  b: 2;
+}
+
+interface C extends A, B { // ✅
+  c: 3;
+}
+
+interface C extends A extends B { // ❌
+  c: 3;
+}
+
+interface C extends A & B { // ❌
+  c: 3;
+}
+
+type D = A & B; // ✅
+const d: D = { a: 1, b: 2}
+}
+```
+
 #### 인터페이스는 같은 이름으로 여러번 선언하면 서로 합쳐지는 특성을 갖는다.
 
 ```ts
