@@ -12,6 +12,22 @@ type 사람 = 포유류 & { think: true };
 const 개발자: 사람 = { breath: true, breed: true, think: true };
 ```
 
+#### 하나 이상으로도 가능하다.
+
+```ts
+type A = { a: 1 };
+type B = { b: 2 };
+type C = { c: 3 };
+
+type D = A & B & C;
+const d: D = { a: 1, b: 2, c: 3 };
+
+type E = { e: 4 };
+
+type F = A & B & C & E;
+const e: F = { a: 1, b: 2, c: 3, e: 4 };
+```
+
 <br />
 
 ### 인터페이스의 상속
