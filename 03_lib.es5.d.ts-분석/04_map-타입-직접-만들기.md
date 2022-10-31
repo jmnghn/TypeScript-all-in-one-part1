@@ -102,7 +102,8 @@ const c = a.map((v) => v.toString());
 
 // [타입추론 결과]
 // const d: boolean[] ✅
-const d = a.map((v) => v % 2 === 0); // expect: [false, true, false] 그리고 boolean[]
+const d = a.map((v) => v % 2 === 0);
+console.log(d); // ✅ [false, true, false]
 ```
 
 > Good. :)
