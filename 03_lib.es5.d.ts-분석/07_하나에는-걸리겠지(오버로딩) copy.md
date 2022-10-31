@@ -9,17 +9,17 @@ function add(x: number | string, y: number | string) {
   return x + y;
 }
 
-// 자바스크립트는 인자를 전달하는 개수가 자유로우니까.
 add(1, 2);
-add(1, 2, 3);
+add(1, 2, 3); // 자바스크립트는 인자를 전달하는 개수가 자유로우니까.
 ```
 
 <br />
 
-### lib.es5.d.ts의 오버로딩
+### `lib.es5.d.ts`의 오버로딩
 
 ```ts
 interface Arr<T> {
+  // filter
   filter<S extends T>(
     predicate: (value: T, index: number, array: T[]) => value is S,
     thisArg?: any
@@ -28,6 +28,7 @@ interface Arr<T> {
     predicate: (value: T, index: number, array: T[]) => unknown,
     thisArg?: any
   ): T[];
+  // reduce
   reduce(
     callbackfn: (
       previousValue: T,
@@ -45,7 +46,7 @@ interface Arr<T> {
     ) => T,
     initialValue: T
   ): T;
-  ...
+  // 등등...
 }
 ```
 > 한 가지 방식으로 타입을 정의하면 가장 베스트겠지만, 그러지 못하는 경우 오버로드시킨다.
@@ -63,7 +64,7 @@ declare function add(x: number, y: number, z: number): number;
 add(1, 2);
 add(3, 4, 5);
 
-// 물론 옵셔널을 안다면 그렇게 사용했을 것.
+// 물론 옵셔널을 안다면 그렇게 사용했을 것이다.
 declare function add(x: number, y: number, z?: number): number;
 ```
 
@@ -85,6 +86,6 @@ class A {
     return x + y;
   }
 }
-// 타입 추론결과 - const c: string ✅
+// [타입 추론결과] const c: string ✅
 const c = new A().add("1", "2");
 ```
