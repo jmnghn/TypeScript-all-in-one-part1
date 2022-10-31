@@ -3,16 +3,19 @@
 ### filter 1
 
 ```ts
-// filtered의 타입 추론 결과 - const filtered: number[]
-// value의 타입 추론 결과 - (parameter) value: number
+// [filtered의 타입 추론 결과] const filtered: number[]
+// [value의 타입 추론 결과] (parameter) value: number
 const filtered = [1, 2, 3, 4, 5].filter((value) => value % 2);
 ```
 
-#### lib.es5.d.ts에 정의된 filter 제네릭
+<br />
+
+#### `lib.es5.d.ts`에 정의된 filter 제네릭
 
 filter는 제네릭 타입이 두 개다. 😳 <br />
 return 타입에 형식 조건자 is를 사용한 커스텀 타입가드 하나, 'unknown'인 것 하나.<br />
-> 대부분 커스텀 타입가드가 쓰이지 않을까? 라는 생각이 든다. 그럼 어떤 예외적인 상황을 위한 unknown인 것일까? 어떤 예외적인 상황들이 있을까?
+> 대부분 커스텀 타입가드가 있는 filter가 쓰이지 않을까? 하는 생각이 든다.<br />
+> (어떤 예외적인 상황을 위한 unknown인 것일까? 어떤 예외적인 상황들이 있을까?)
 
 ```ts
 interface Array<T> {
@@ -55,7 +58,7 @@ const filtered2 = ["1", 2, "3", 4, "5"].filter(
 );
 ```
 
-하지만 내가 원하는 건 filtered의 타입이 `string[]`이 되는 것이라면... (형식조건자 `is`)
+하지만 원하는 게 filtered의 타입이 `string[]`이 되는 것이라면... (형식조건자 `is`)
 
 ```ts
 const predicate = (value: string | number): value is string => typeof value === "string";
