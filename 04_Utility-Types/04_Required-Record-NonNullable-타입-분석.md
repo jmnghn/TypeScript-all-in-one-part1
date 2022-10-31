@@ -159,7 +159,7 @@ const a: R<string, number> = { a: 1, b: 2, c: 3 };
 ```ts
 type A = string | null | undefined | boolean | number;
 
-// type B = string | number | boolean // ✅
+// [타입추론] type B = string | number | boolean // ✅
 type B = NonNullable<A>;
 ```
 
@@ -170,7 +170,7 @@ type A = string | null | undefined | boolean | number;
 
 type N<T> = T extends null | undefined ? never : T;
 
-// type B = string | number | boolean // ✅
+// [타입추론] type B = string | number | boolean // ✅
 type B = N<A>;
 ```
 
