@@ -35,11 +35,11 @@ interface Todo {
   completed: boolean;
 }
 
-// 이해를 더 쉽게하기 위해 문자열 리터럴 또는 문자열 리터럴 지합으로 오는 type parameter 두 번째 인자는 Literal이라는 이름으로 지정했다.
 type P<T, Literal> = {
-  // T[Literal] 일 수는 없으니까 (Literal - 'title' | 'completed')
-  [Key in keyof Literal]: T[Key]; // ❌ Type 'Key' cannot be used to index type 'T'.ts(2536)
+  [Key in keyof Literal]: T[Key]; // T[Literal] 일 수는 없으니까 (Literal - 'title' | 'completed') in keyof를 사용한다.
+  // ❌ Type 'Key' cannot be used to index type 'T'.ts(2536)
 };
+// (※ 이해를 더 쉽게하기 위해 문자열 리터럴 또는 문자열 리터럴 집합으로 오는 타입 매개변수 두 번째 인자는 변수명을 Literal로 지정했다.)
 
 type TodoPreview = P<Todo, "title" | "completed">;
 
@@ -48,7 +48,7 @@ const todo: TodoPreview = {
   completed: false,
 };
 
-// 타입 추론 결과 - const todo: TodoPreview
+// [타입 추론 결과] - const todo: TodoPreview
 todo;
 ```
 
@@ -62,12 +62,17 @@ interface Todo {
 }
 
 type P<T, Literal> = {
-  [Key in keyof Literal]: Literal[Key];
+  [Key in keyof Literal]: Literal[Key]; // 근데... 이렇게 하면 타입 매개변수 T가 아무곳에서도 쓰이지 않는다.
 };
-// 근데... 이렇게 하면 T type parameter가 아무곳에서도 안쓰인다...
 
-// 타입도 잘못 됐다.
+// 동작도 잘못 됐다.
 // ❌ type TodoPreview = "title" | "completed"
+
+// [원했던 타입]
+// type TodoPreview
+//   title: string;
+//   completed: boolean;
+// }
 type TodoPreview = P<Todo, "title" | "completed">;
 
 const todo: TodoPreview = {
@@ -87,12 +92,12 @@ interface Todo {
   completed: boolean;
 }
 
-type P<T, Literal extends keyof T> = {
+type P<T, Literal extends keyof T> = { // Literal을 keyof T의 부분집합으로 제한
   [Key in Literal]: T[Key];
 };
 
 // TodoPreview 타입 구성
-// type TodoPreview = {
+// type TodoPreview = { // ✅
 //   title: string;
 //   completed: boolean;
 // }
@@ -107,7 +112,7 @@ todo;
 ```
 
 > 잘되는 것 같다... Good~<br />
-> ※ 제네릭을 이용한 타입을 만들 때는, 제네릭의 '제한 조건'을 먼저 찾는 것이 좋다.
+> (※ 제네릭으로 타입을 만들 때는, 제네릭의 '제한 조건'을 먼저 살펴보면 좋다는 것을 느낄 수 있었다.)
 
 <br />
 
