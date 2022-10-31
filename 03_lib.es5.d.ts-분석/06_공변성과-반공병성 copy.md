@@ -1,4 +1,4 @@
-## 공변성(Covariance)과 반공병성(Contravariance)
+## 공변성(Covariance)과 반공성(Contravariance)
 
 > ※ 공변성(共變性) 두둥...<br />
 > 한 변수가 변하면 다른 변수도 변하는 성질. (공공(公共)의 그 공(共))<br />
@@ -62,20 +62,20 @@ const d: D = c; // ❌
 
 <br />
 
-이를 설명하기 위해서 공변성, 반공변성, 이변성 등의 용어들이 나오는데, 우선은 동작만 저렇게만 알아두자. (왜 용어를 이렇게 만들어놓은 것일까)
+이를 설명하기 위해서 공변성, 반공변성, 이변성 등의 용어들이 나오는데, 우선은 동작만 저렇게만 알아두자. 
+(대체 왜 용어를 이렇게 어렵게 만들어놓은 것일까 🤯)
 
 <br />
 
 ### 리턴타입과 매개변수 동시에 적용된 예
 
 ```ts
-// ...? 타입이 전혀 달라보이는데, 어떻게 되는지 모를 희한한 코드로 보인다.
 function a(x: number | string): number {
   return 0;
 }
 
 type B = (x: string) => number | string;
-const b: B = a;
+const b: B = a; // ...? 타입이 전혀 달라보이는데, 어떻게 되는지 모를 희한한 코드로 보인다.
 ```
 
 <br />
@@ -94,19 +94,22 @@ function a(x: string): number {
 }
 type B = (x: string) => number | string;
 let b: B = a;
-
+```
+```ts
 function a(x: string): number | string {
   return 0;
 }
 type B = (x: string) => number;
 let b: B = a;
-
+```
+```ts
 function a(x: string | number): number {
   return 0;
 }
 type B = (x: string) => number;
 let b: B = a;
-
+```
+```ts
 function a(x: string): number {
   return 0;
 }
@@ -116,7 +119,7 @@ let b: B = a;
 
 <br />
 
-### 별도 - 용어 - 타입 넓히기와 타입 좁히기 (공변성, 반공병성과는 다르다.)
+### 별도 - 용어 - 타입 넓히기와 타입 좁히기 (공변성, 반공변성과는 다르다.)
 
 ```ts
 // 타입 넓히기
