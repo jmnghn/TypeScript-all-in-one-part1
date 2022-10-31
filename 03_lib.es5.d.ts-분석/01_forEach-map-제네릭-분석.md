@@ -3,22 +3,22 @@
 ### forEach
 
 ```ts
-// value 인자의 타입 추론 - (parameter) value: number
+// [value 인자의 타입 추론] (parameter) value: number
 [1, 2, 3].forEach((value) => {
   console.log(value);
 });
 
-// value 인자의 타입 추론 - (parameter) value: string
+// [value 인자의 타입 추론] (parameter) value: string
 ["1", "2", "3"].forEach((value) => {
   console.log(value);
 });
 
-// value 인자의 타입 추론 - (parameter) value: boolean
+// [value 인자의 타입 추론] (parameter) value: boolean
 [true, false, true].forEach((value) => {
   console.log(value);
 });
 
-// value 인자의 타입 추론 - (parameter) value: string | number | boolean
+// [value 인자의 타입 추론] (parameter) value: string | number | boolean
 ["123", 123, true].forEach((value) => {
   console.log(value);
 });
@@ -28,7 +28,7 @@
 
 <br />
 
-#### lib.es5.d.ts에 정의된 forEach의 제네릭
+#### `lib.es5.d.ts`에 정의된 forEach의 제네릭
 
 ```ts
 interface Array<T> {
@@ -39,7 +39,7 @@ interface Array<T> {
 }
 ```
 
-> 이처럼 타입을 'T'로 묶어놨기 때문에...:) 인자의 타입으로 추론할 수 있다.<br />
+> 이처럼 타입을 'T'로 묶어놓아 인자의 타입으로 추론할 수 있다.<br />
 
 <br />
 
@@ -49,12 +49,12 @@ interface Array<T> {
 
 ```ts
 function a(x: number | string, y: number | string) {}
-// 위 함수와 같이 '|'를 사용하면, 아래와 같은 타입이 불일치하는 호출까지 허용이 된다.
+// 위 함수와 같이 '|'를 사용하면, a(1, "2");나 a("1", 2);와 같은 타입이 불일치하는 호출까지 허용이 된다.
 // (사실 인자의 number, string을 모두 허용해서 return 타입을 number | string 으로 하는 것도 타입스크립트에서는 말이 안된다.)
 a(1, "2");
 a("1", 2);
 
-// 이를 방지하고자 제네릭을 사용하는 것
+// 이를 방지하고자 제네릭을 사용하는 것이다.
 function b<T>(x: T, y: T): T {
   return x;
 }
@@ -62,9 +62,9 @@ b(1, 2);
 b("1", "2");
 b(true, false);
 
-b<number>(1, 2); // type parameter - 타입추론을 하지 못할 경우에만...!
+b<number>(1, 2); // type parameter는 타입추론을 하지 못할 경우에만...!
 
-// ※ 참고로 아래 코드는 타입을 '강제지정'한 것이다.
+// ※ 참고로 아래 코드는 타입을 '강제지정'한 것이다. 위 코드의 b와 <number>의 순서만 바뀌어있다.
 <number>b(1, 2);
 ```
 
@@ -98,8 +98,8 @@ interface Array<T> {
 
 #### T와 U로 헷갈린다면...
 
-T는 `const str = [1, 2, 3].map((item) => item.toString());`를 예로 number로 변경해보자.<br />
-그리고 리턴타입을 살펴보면 있는 U에 `toString()`을 통해 반환할 값은 문자열이니 string으로 변경해보면 다음과 같은 형태가 된다.
+T는 `const str = [1, 2, 3].map((item) => item.toString());`를 예로 callbackfn의 value로 들어갈 1, 2, 3. 즉, number로 변경해보자.<br />
+그리고 리턴타입에 있는 `toString()`을 U로 대입해 반환할 값은 문자열. 즉, string으로 변경해보면 다음과 같은 형태가 된다.
 
 ```ts
 interface Array<T> {
