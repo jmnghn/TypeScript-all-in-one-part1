@@ -1,4 +1,4 @@
-## 공변성(Covariance)과 반공성(Contravariance)
+## 공변성(Covariance)과 반공변성(Contravariance)
 
 > ※ 공변성(共變性) 두둥...<br />
 > 한 변수가 변하면 다른 변수도 변하는 성질. (공공(公共)의 그 공(共))<br />
