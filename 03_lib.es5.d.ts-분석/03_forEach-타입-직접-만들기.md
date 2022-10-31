@@ -3,6 +3,8 @@
 다른 사람이 작성한 타입을 읽을 줄 알았다면,<br />
 내가 만들 줄도 알아야 하는 것... 😄
 
+<br />
+
 ### 타입을 만들어보자
 
 ```ts
@@ -11,7 +13,7 @@ interface Arr {
   forEach(callback: (item: number) => void): void;
 }
 
-const a: Arr = [1, 2, 3];
+const a: Arr = [1, 2, 3]; // ✅ 잘 되는 것 같다... 
 a.forEach((item) => {
   console.log(item);
 });
@@ -20,7 +22,7 @@ a.forEach((item) => {
   return "3";
 });
 
-// 잘 되는 것 같다... 하지만 문자열 배열이 존재한다면?
+// 하지만 문자열 배열이 존재한다면?
 const b: Arr = ["1", "2", "3"]; // ❌...Type 'string' is not assignable to type 'number'.ts(2322)
 b.forEach((item) => {
   console.log(item);
@@ -36,8 +38,8 @@ b.forEach((item) => {
 interface Arr {
   forEach(callback: (item: number | string) => void): void;
 }
+// 되는 거 같다. 그러면 이제 된 걸까?
 
-// 음~ 되는 거 같다. 그러면 이제 된 걸까?
 // 하지만 만약 함수 내부가 조금만 더 복잡해진다면...?
 const a: Arr = [1, 2, 3];
 a.forEach((item) => {
@@ -83,7 +85,7 @@ b.forEach((item) => {
 
 <br />
 
-### lib.es5.d.ts의 forEach와 직접만든 타입 비교해보자.
+### `lib.es5.d.ts`의 forEach와 직접만든 타입 비교해보자.
 
 ```ts
 interface Arr<T> {
