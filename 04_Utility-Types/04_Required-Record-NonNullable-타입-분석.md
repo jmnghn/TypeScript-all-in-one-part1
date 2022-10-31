@@ -28,7 +28,7 @@ const obj: Props = { a: 5 };
 
 type R<T> = {
   [Key in keyof T]-?: T[Key]; // `-?`는 모든 옵셔널을 제거하겠다는 의미다.
-  // +?도 있는데 ?(옵셔널)과 똑같아서 사용하지 않는다.
+  // +?도 있는데 ?(옵셔널)과 똑같아서 잘 사용하지는 않는다.
 };
 
 const obj2: R<Props> = { a: 5" };
@@ -121,6 +121,7 @@ interface Obj {
 }
 
 const a: Obj = { a: 1, b: 2, c: 3 };
+// Obj 타입처럼 잘 동작한다.
 const b: Record<string, number> = { a: 1, b: 2, c: 3 };
 ```
 
@@ -134,7 +135,7 @@ type R<T, S> = {
 const a: R<string, number> = { a: 1, b: 2, c: 3 };
 ```
 
-> T의 제한조건이 안걸려 있어서 그렇다. 음... 다시 만들어보자.
+> T의 타입제한이 걸려 있지 않아서 그렇다. 음... 다시 만들어보자.
 
 #### 수정 (`extends keyof any`)
 
@@ -147,7 +148,7 @@ const a: R<string, number> = { a: 1, b: 2, c: 3 };
 ```
 
 > 음...... 🤔<br />
-> 타입스크립트 공식 문서 Record 설명에서 CatName에 CatInfo를 매핑했던 걸 돌아보면, extends keyof any가 객체를 막기위한다기 보다는 null, undefined, boolean을 막기위한 테크닉으로 보인다.
+> 타입스크립트 공식 문서 Record 설명에서 CatName에 CatInfo를 매핑했던 걸 돌아보면, extends keyof any가 객체를 막기위한다기 보다는 null, undefined, boolean을 막기위한 테크닉으로 보인다. (keyof any는 string | number | symbol 복습)
 
 <br />
 
