@@ -123,7 +123,7 @@ type Key = keyof typeof obj;
 
 ```ts
 const obj = { a: "123", b: "hello", c: "world" };
-// 타입 추론 - type Key = "a" | "b" | "c"
+// [타입 추론] type Key = "a" | "b" | "c"
 type Key = keyof typeof obj; // obj의 키만을 추출해 타입으로 사용한다는 것을 알 수 있다.
 
 const d: Key = "a";
@@ -139,7 +139,7 @@ const g: Key = "123"; // ❌ Type '"123"' is not assignable to type '"a" | "b" |
 
 ```ts
 const obj = { a: "123", b: "hello", c: "world" } as const;
-// 타입 추론 - type Key = "123" | "hello" | "world"
+// [타입 추론] type Key = "123" | "hello" | "world"
 type Key = typeof obj[keyof typeof obj];
 
 const d: Key = "a"; // ❌ - Type '"a"' is not assignable to type 'Key'.ts(2322)
