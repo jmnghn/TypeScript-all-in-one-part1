@@ -20,6 +20,7 @@ type A = { a: string; b: string; c: string; d: string };
 
 // 위 코드를 이렇게도 표현할 수 있다.
 type B = { [key: string]: string };
+
 const b: B = { a: 1, b: 2, c: 3 }; // ❌ Type 'number' is not assignable to type 'string'.ts(2322)
 const bb: B = { a: "1", b: "2", c: "3" }; // ✅
 
@@ -40,7 +41,7 @@ const e: E = { a: 1, b: 2, c: "3" }; // ❌ Type 'number' is not assignable to t
 const ee: E = { a: true, b: false, c: true }; // ✅
 
 ```
-> 복잡해보일 수 있지만, []에 키의 타입을 지정하고 나머지에 value의 타입을 지정하는 형태다.<br />
+> 복잡해보일 수 있지만, `[]`에 키의 타입을 지정하고 나머지에 value의 타입을 지정하는 형태다.<br />
 > 전혀 다르지만, computed property(obj['key']) 같은 느낌이 든다.<br />
 
 <br />
