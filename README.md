@@ -36,7 +36,7 @@
 
 ### 함께 읽어 볼 라이브러리 코드
 
-> ※ [Part2 Repository](https://github.com/jmnghn/TypeScript-all-in-one-part2)
+> ※ 이 부분 정리는[Part2 Repository](https://github.com/jmnghn/TypeScript-all-in-one-part2)에...
 
 - [axios - index.d.ts](https://github.com/axios/axios/blob/v1.x/index.d.ts)
 - [react - index.d.ts](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/react/index.d.ts)
